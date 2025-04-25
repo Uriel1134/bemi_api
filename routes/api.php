@@ -14,12 +14,12 @@ Route::get('/user', function (Request $request) {
 
 
 Route::prefix('auth')->group(function () {
-    Route::post('register', [AuthController::class, 'register'])->name('register');
-    Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('auth/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('auth/logout', [AuthController::class, 'logout']);
     Route::get('profile', fn(Request $request) => $request->user());
 });
 
