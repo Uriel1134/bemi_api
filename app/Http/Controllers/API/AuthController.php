@@ -80,7 +80,6 @@ class AuthController extends Controller
                     'token' => $token
                 ]
             ], 201);
-
         } catch (ValidationException $e) {
             return response()->json([
                 'success' => false,
@@ -123,7 +122,6 @@ class AuthController extends Controller
                     'token' => $token
                 ]
             ], 200);
-
         } catch (ValidationException $e) {
             return response()->json([
                 'success' => false,
@@ -148,7 +146,6 @@ class AuthController extends Controller
                 'success' => true,
                 'message' => 'Déconnexion réussie.',
             ], 200);
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reward;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class RewardController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,13 @@ class RewardController extends Controller
     public function index()
     {
         //
-        return view('dashboard.promoteur.offres.add');
+        if(/* Role user == "Promoteur" */ true){
+            return view('dashboard.promoteur.index');
+        }
+        if(/* Role user == "Admin" */ true){
+            return view('dashboard.admin.index');
+        }
+        //return view('dashboard.');
     }
 
     /**
@@ -22,7 +28,6 @@ class RewardController extends Controller
     public function create()
     {
         //
-        return view('dashboard.rewards.add');
     }
 
     /**
@@ -36,7 +41,7 @@ class RewardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reward $reward)
+    public function show(User $user)
     {
         //
     }
@@ -44,7 +49,7 @@ class RewardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reward $reward)
+    public function edit(User $user)
     {
         //
     }
@@ -52,7 +57,7 @@ class RewardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reward $reward)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -60,7 +65,7 @@ class RewardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reward $reward)
+    public function destroy(User $user)
     {
         //
     }
